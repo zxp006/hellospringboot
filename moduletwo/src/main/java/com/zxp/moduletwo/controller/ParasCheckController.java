@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
+import java.util.Map;
 
 /**
  * @author zxp
@@ -65,7 +66,8 @@ public class ParasCheckController {
     }
 
     @PostMapping(value = "/good3")
-    public String good3(String goodNo, String goodName, String goodPrice) throws Exception {
+    public String good3(String goodNo, String goodName, String goodPrice,HttpServletRequest servletRequest) throws Exception {
+        Map<String, String[]> map = servletRequest.getParameterMap();
         String parm = String.format("接受的参数%s,%s,%s", goodNo, goodName, goodPrice);
         log.info("请求的url{},{}", request.getRequestURI(), parm);
         return parm;

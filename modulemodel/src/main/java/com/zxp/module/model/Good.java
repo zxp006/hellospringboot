@@ -18,7 +18,6 @@ public class Good {
     private String goodNo;
 
     @NotBlank(message = "商品名不能为空")
-    @Size(max = 20, message = "商品名不能大于20")
     private String goodName;
 
     @NotNull(message = "商品价格不能为空")
